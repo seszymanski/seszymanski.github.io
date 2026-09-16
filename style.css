@@ -247,30 +247,50 @@ h2 { font-family: 'Playfair Display', serif; font-size: 2rem; }
     backdrop-filter: blur(5px);            /* Adds a slight glass blur */
 }
 
-/* --- Mobile Responsiveness (Add to bottom of style.css) --- */
 @media (max-width: 768px) {
-    /* Reduce padding so content doesn't get squeezed */
-    .container { padding: 0 15px; margin: 20px auto; }
-    
-    /* Make Hero stack vertically */
-    .hero { flex-direction: column; height: auto; text-align: center; padding: 40px 5%; }
-    
-    /* Reduce big text sizes */
-    h1 { font-size: 2.2rem; }
-    
-    /* Hide/Shrink the circle on mobile */
-    .glowing-circle { width: 250px; height: 250px; }
-    
-    /* Stack your Journalism cards */
-    .stories-grid { margin-top: 30px; }
-    .story-card { height: 250px; }
-    .card-content h2 { font-size: 1.2rem; }
-    
-    /* Stack your Photography grids to 1 column */
-    .photography-grid { grid-template-columns: 1fr; }
-    
-    /* Fix Navigation - make links smaller and stack if needed */
-    nav { padding: 15px 5%; }
-    .nav-links { gap: 15px; }
-    .nav-links a { font-size: 0.7rem; }
+    /* 1. Fix Nav */
+    nav { padding: 15px 5% !important; }
+    .nav-links { gap: 10px !important; }
+    .nav-links a { font-size: 0.6rem !important; }
+
+    /* 2. Fix Hero/Circle */
+    .hero { flex-direction: column !important; padding: 20px 5% !important; height: auto !important; }
+    .glowing-circle { width: 200px !important; height: 200px !important; margin-top: 30px !important; order: -1; } /* Moves circle to top */
+    h1 { font-size: 2rem !important; margin-top: 20px; }
+
+    /* 3. Fix Journalism Cards */
+    .stories-grid { display: block !important; }
+    .story-card { width: 100% !important; height: 200px !important; }
+    .overlay h2 { font-size: 1rem !important; }
+
+    /* 4. Fix Photography Grid */
+    .photography-grid { grid-template-columns: 1fr !important; }
+}
+
+.logo { text-decoration: none; display: block; }
+
+/* --- About Page Specifics --- */
+.about-section { margin-bottom: 60px; }
+
+/* Timeline/Experience Cards */
+.experience-card {
+    background: #111;
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent);
+    margin-bottom: 20px;
+}
+.experience-card h3 { margin: 0 0 10px 0; font-family: 'Playfair Display', serif; }
+.experience-card p { color: #aaa; margin: 5px 0; }
+
+/* Skill Badges */
+.skill-grid { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; }
+.neon-badge {
+    padding: 8px 20px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
