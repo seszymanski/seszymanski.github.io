@@ -6,7 +6,7 @@ function toggleMenu() {
 }
 document.addEventListener("DOMContentLoaded", function() {
     var typed = new Typed("#typing-effect", {
-        strings: ["Journalist.", "Photographer.", "Legislative Researcher."],
+        strings: ["Journalist.", "Photographer.", "Designer."],
         typeSpeed: 100,      // How fast it types
         backSpeed: 50,       // How fast it deletes
         backDelay: 2000,     // Wait 2 seconds before deleting
