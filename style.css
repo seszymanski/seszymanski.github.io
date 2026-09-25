@@ -209,9 +209,12 @@ h2 { font-family: 'Playfair Display', serif; font-size: 2rem; }
 }
 
 .game-card:hover { 
-    filter: grayscale(0%); 
+    filter: grayscale(0%) brightness(1); 
     transform: translateY(-5px); 
     box-shadow: 0 0 20px var(--accent); 
+}
+.game-card:hover .overlay {
+    background: rgba(0, 0, 0, 0.2); /* Lighter on hover to let photos pop */
 }
 
 .photo-slice { 
