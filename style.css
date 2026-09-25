@@ -190,7 +190,7 @@ h2 { font-family: 'Playfair Display', serif; font-size: 2rem; }
 /* --- Photography Page Only --- */
 .photography-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 games per row */
+    grid-template-columns: 1fr 1fr; 
     gap: 20px;
     margin-top: 40px;
 }
@@ -198,30 +198,32 @@ h2 { font-family: 'Playfair Display', serif; font-size: 2rem; }
 .game-card {
     height: 350px;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 photos per row */
-    grid-template-rows: 1fr 1fr;    /* 2 photos per column */
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr;
     position: relative;
     border-radius: 8px;
     overflow: hidden;
     text-decoration: none;
-    filter: grayscale(80%);
-    transition: all 0.5s ease;
+    transition: transform 0.4s ease; /* Smooth growing effect */
 }
 
+/* Hover Effect: The "Pop" */
 .game-card:hover { 
-    transform: translateY(-5px); 
+    transform: translateY(-10px); 
     box-shadow: 0 0 20px var(--accent); 
 }
-.game-card:hover .photo-slice {
-    filter: grayscale(0%) brightness(1);
-}
-.game-card:hover .overlay {
-    background: rgba(0, 0, 0, 0.2); /* Lighter on hover to let photos pop */
-}
 
+/* Move the grayscale filter here, inside the slices */
 .photo-slice { 
     background-size: cover; 
     background-position: center; 
+    filter: grayscale(80%);
+    transition: filter 0.5s ease;
+}
+
+/* When the card is hovered, change the slice filter */
+.game-card:hover .photo-slice { 
+    filter: grayscale(0%); 
 }
 
 .game-overlay {
@@ -234,22 +236,27 @@ h2 { font-family: 'Playfair Display', serif; font-size: 2rem; }
     background: rgba(0, 0, 0, 0.5); 
     text-align: center; 
     padding: 20px;
-    color: #fff !important; /* THIS FORCES THE TEXT TO BE WHITE */
-    text-decoration: none !important; /* THIS REMOVES THE BLUE UNDERLINE */
+    color: #fff !important; 
+    text-decoration: none !important;
+    transition: background 0.3s ease;
+}
+
+/* Lighten overlay on hover to make photos brighter */
+.game-card:hover .game-overlay {
+    background: rgba(0, 0, 0, 0.2); 
 }
 
 .game-overlay h2 { margin: 0; font-family: 'Playfair Display', serif; }
 
-/* This makes the Photography metadata look like the Journalism badge */
 .game-overlay p {
-    background: rgba(255, 255, 255, 0.15); /* Semi-transparent white */
-    padding: 8px 20px;                     /* Spacing inside the badge */
-    border-radius: 50px;                   /* Makes it a 'pill' shape */
+    background: rgba(255, 255, 255, 0.15);
+    padding: 8px 20px;
+    border-radius: 50px;
     margin-top: 15px;
-    display: inline-block;                 /* Shrinks the background to fit the text */
+    display: inline-block;
     font-size: 0.9rem;
     letter-spacing: 1px;
-    backdrop-filter: blur(5px);            /* Adds a slight glass blur */
+    backdrop-filter: blur(5px);
 }
 
 @media (max-width: 768px) {
